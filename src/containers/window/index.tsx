@@ -1,13 +1,39 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { canvasWidth, canvasHeight } from '../../util/configs';
+import Tiles from '../../util/tiles';
 
-import Graph from '../graph';
+import GraphCanvas from '../graphCanvas';
 import { Container } from './styles';
+import { generateEmptyGraph } from '../../util/graphUtil';
 
-export default function SideBar() {
-  return (
-    <Container>
-      <Graph width={canvasWidth} height={canvasHeight} />
-    </Container>
-  );
+interface Props {}
+
+interface State {
+  graph: Tiles[][];
+}
+
+export default class SideBar extends Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      graph: generateEmptyGraph(),
+    };
+  }
+
+  setGraph = (newGraph: Tiles[][]) => {
+    this.setState({ graph: newGraph });
+  };
+
+  render() {
+    return (
+      <Container>
+        <GraphCanvas
+          width={canvasWidth}
+          height={canvasHeight}
+          graph={this.state.graph}
+          setGraph={this.setGraph}
+        />
+      </Container>
+    );
+  }
 }

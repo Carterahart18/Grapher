@@ -7,7 +7,7 @@ import { AppContainer } from './styles';
 export default function App() {
   return (
     <AppContainer>
-      <SideBar />
+      {/* <SideBar /> */}
       <AppWindow />
     </AppContainer>
   );
