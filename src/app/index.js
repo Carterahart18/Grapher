@@ -5,6 +5,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
+
+
+
+      
         <header class="App-header">
           <h1 class="App-title">Grapher</h1>
         </header>
