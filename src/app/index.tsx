@@ -1,17 +1,12 @@
-import React, { Component } from 'react';
-import './App.css';
+import React from 'react';
+import SideBar from '../containers/sideBar';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        {/* <header className="App-header">
-          <h1 className="App-title">Grapher</h1>
-        </header>
-        <canvas id="canvas" width="500" height="500" scale="1" /> */}
-      </div>
-    );
-  }
+import { AppContainer } from './styles';
+
+export default function App() {
+  return (
+    <AppContainer>
+      <SideBar/>
+    </AppContainer>
+  );
 }
-
-export default App;
