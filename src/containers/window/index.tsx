@@ -1,39 +1,42 @@
 import React, { Component } from 'react';
-import { canvasWidth, canvasHeight } from '../../util/configs';
-import Tiles from '../../util/tiles';
 
-import GraphCanvas from '../graphCanvas';
+import MergeSort from '../mergeSort';
+import Grapher from '../grapher';
 import { Container } from './styles';
-import { generateEmptyGraph } from '../../util/graphUtil';
+
+enum Pages {
+  MENU = 'MENU',
+  GRAPHER = 'GRAPHER',
+  MERGESORT = 'MERGESORT',
+}
 
 interface Props {}
 
 interface State {
-  graph: Tiles[][];
+  page: Pages;
 }
 
-export default class SideBar extends Component<Props, State> {
+export default class Window extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      graph: generateEmptyGraph(),
+      page: Pages.MERGESORT,
     };
   }
 
-  setGraph = (newGraph: Tiles[][]) => {
-    this.setState({ graph: newGraph });
-  };
+  getPage() {
+    switch (this.state.page) {
+      case Pages.MERGESORT:
+        return <MergeSort />;
+      case Pages.GRAPHER:
+        return <Grapher />;
+      default:
+        break;
+    }
+    return <div />;
+  }
 
   render() {
-    return (
-      <Container>
-        <GraphCanvas
-          width={canvasWidth}
-          height={canvasHeight}
-          graph={this.state.graph}
-          setGraph={this.setGraph}
-        />
-      </Container>
-    );
+    return <Container>{this.getPage()}</Container>;
   }
 }

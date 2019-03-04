@@ -51,7 +51,7 @@ export default class GraphCanvas extends Component<Props> {
     let newType: Tiles = type === Tiles.WALLED ? Tiles.UNVISITED : Tiles.WALLED;
     graph[coordinates.y][coordinates.x] = newType;
 
-    console.log(`x: ${coordinates.x}, y: ${coordinates.y}`);
+    // console.log(`x: ${coordinates.x}, y: ${coordinates.y}`);
     this.props.setGraph(graph);
   };
 

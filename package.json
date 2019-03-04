@@ -5,7 +5,7 @@
   "scripts": {
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "format": "prettier --config ./configs/prettier.config.js --write **/*.js **/*.css",
+    "format": "prettier --config ./prettier.config.js --write **/*.js **/*.css",
     "start": "react-scripts start",
     "test": "react-scripts test"
   },
