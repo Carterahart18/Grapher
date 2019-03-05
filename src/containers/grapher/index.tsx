@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { canvasWidth, canvasHeight } from '../../util/configs';
 import Tiles from '../../util/tiles';
+import Apps from '../../util/apps';
 
 import GraphCanvas from '../graphCanvas';
 import { Container } from './styles';
 import { generateEmptyGraph } from '../../util/graphUtil';
 
-interface Props {}
+interface Props {
+  setApp: (app: Apps) => void;
+}
 
 interface State {
   graph: Tiles[][];

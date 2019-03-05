@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button } from './styles';
 
 interface Props {
+  text: string,
   onClick?: () => void;
 }
 
@@ -12,5 +13,5 @@ export default function ButtonComponent(props: Props) {
     }
   };
 
-  return <Button onClick={onClick}>{'Sort'}</Button>;
+  return <Button onClick={onClick}>{props.text}</Button>;
 }

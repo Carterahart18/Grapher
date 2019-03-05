@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import Apps from '../../util/apps';
+
 import ArrayDisplay from '../../components/arrayDisplay';
 import ArrayPrompt from '../../components/arrayPrompt';
 import Button from '../../components/button';
 import { ArrayDisplayRow, Container, Header, InputContainer } from './styles';
 
-interface Props {}
+interface Props {
+  setApp: (app: Apps) => void;
+}
 
 interface State {
   initialArray: number[];
@@ -145,6 +149,15 @@ export default class MergeSort extends Component<Props, State> {
     }
   };
 
+  generateRandomArray = () => {
+    let array: number[] = [];
+    let length: number = Math.ceil(Math.random() * 4 + 4);
+    for (let i = 0; i < length; i++) {
+      array[i] = Math.ceil(Math.random() * 200 - 100);
+    }
+    this.setState({ initialArray: array, arraySteps: [[[]]] });
+  };
+
   render() {
     const { initialArray, arraySteps } = this.state;
     return (
@@ -155,7 +168,8 @@ export default class MergeSort extends Component<Props, State> {
             placeholder={'1, 2, 3, ... n'}
             onChange={this.onInputChange}
           />
-          <Button onClick={this.sortArray} />
+          <Button onClick={this.sortArray} text={'Sort'} />
+          <Button onClick={this.generateRandomArray} text={'Randomize'} />
         </InputContainer>
 
         <ArrayDisplay array={initialArray} />

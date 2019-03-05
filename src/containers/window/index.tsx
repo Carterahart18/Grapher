@@ -1,42 +1,45 @@
 import React, { Component } from 'react';
+import Apps from '../../util/apps';
 
 import MergeSort from '../mergeSort';
 import Grapher from '../grapher';
+import AppMenu from '../appMenu';
 import { Container } from './styles';
-
-enum Pages {
-  MENU = 'MENU',
-  GRAPHER = 'GRAPHER',
-  MERGESORT = 'MERGESORT',
-}
 
 interface Props {}
 
 interface State {
-  page: Pages;
+  app: Apps;
 }
 
 export default class Window extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      page: Pages.MERGESORT,
+      app: Apps.MERGESORT,
     };
   }
 
-  getPage() {
-    switch (this.state.page) {
-      case Pages.MERGESORT:
-        return <MergeSort />;
-      case Pages.GRAPHER:
-        return <Grapher />;
+  getApp() {
+    const defaultProps = {
+      setApp: this.setApp,
+    };
+
+    switch (this.state.app) {
+      case Apps.MERGESORT:
+        return <MergeSort {...defaultProps} />;
+      case Apps.GRAPHER:
+        return <Grapher {...defaultProps} />;
       default:
-        break;
+        return <AppMenu {...defaultProps} />;
     }
-    return <div />;
   }
 
+  setApp = (app: Apps) => {
+    this.setState({ app: app });
+  };
+
   render() {
-    return <Container>{this.getPage()}</Container>;
+    return <Container>{this.getApp()}</Container>;
   }
 }

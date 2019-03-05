@@ -13,7 +13,7 @@ export const InputContainer = styled('div')`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 400px;
+  width: 500px;
   margin: 50px 0;
 `;
 
