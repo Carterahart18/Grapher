@@ -1,5 +1,5 @@
 import React from 'react';
-import SideBar from '../containers/sideBar';
+// import SideBar from '../containers/sideBar';
 import AppWindow from '../containers/window';
 
 import { AppContainer } from './styles';

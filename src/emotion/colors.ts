@@ -8,6 +8,7 @@ export const scarpaFlow = '#555566';
 export const charade = '#282832';
 
 // Grey Scale
+export const gray = '#888888';
 export const alto = '#CFCFCF';
 export const gallery = '#eeeeee';
 export const silverChalice = '#aaaaaa';
