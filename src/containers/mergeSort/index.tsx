@@ -152,10 +152,16 @@ export default class MergeSort extends Component<Props, State> {
   generateRandomArray = () => {
     let array: number[] = [];
     let length: number = Math.ceil(Math.random() * 4 + 4);
+    let arrayStr = '';
     for (let i = 0; i < length; i++) {
       array[i] = Math.ceil(Math.random() * 200 - 100);
+      arrayStr += i < length - 1 ? `${array[i]}, ` : `${array[i]}`;
     }
     this.setState({ initialArray: array, arraySteps: [[[]]] });
+    const element = document.getElementById('ArrayPrompt');
+    if (element) {
+      element.setAttribute('value', arrayStr);
+    }
   };
 
   render() {
@@ -165,6 +171,7 @@ export default class MergeSort extends Component<Props, State> {
         <Header>{'MERGE SORT'}</Header>
         <InputContainer>
           <ArrayPrompt
+            id={'ArrayPrompt'}
             placeholder={'1, 2, 3, ... n'}
             onChange={this.onInputChange}
           />

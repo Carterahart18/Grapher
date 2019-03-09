@@ -1,7 +1,7 @@
 enum Apps {
   MENU = 'MENU',
   GRAPHER = 'GRAPHER',
-  MERGESORT = 'MERGESORT',
+  MERGESORT = 'MERGESORT'
 }
 
 export default Apps;

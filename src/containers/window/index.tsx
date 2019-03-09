@@ -16,7 +16,7 @@ export default class Window extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      app: Apps.MERGESORT,
+      app: Apps.MENU,
     };
   }
 
